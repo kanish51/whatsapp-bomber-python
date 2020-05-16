@@ -9,14 +9,14 @@ Simple whatsapp web bomber made with python using selenium.
 * (Used in script) Gecko Web Driver- For Mozilla FireFox
 * Or Chromedriver- For Google Chrome
 
-#### To use this program, [download] the geckodriver and then add it to the PATH Environment Variable 
+#### To use this program, [download](scroll down and search for assets) the geckodriver and then add it to the PATH Environment Variable 
 
 ### How to setup
 1. Download and install Python 3.x from https://python.org
 2. Install Selenium by
  ``` pip install selenium ```
 3. Setup gecko driver (for using mozilla firefox)
-4. Download by script from here 
+4. Download by script from this repository.
 5. Run it from CMD!
 ```python whatsappbomber.py ```
 6. Follow the instructions on CMD
@@ -30,7 +30,7 @@ Simple whatsapp web bomber made with python using selenium.
 5. After scanning the QR code, you will then need to hit enter on the program and it will automatically start sending messages after a few seconds.
 
 ### Aim
- This project was made just for fun during lockdown.PLease don't use it in a wrong way. I am not responsible if anything happens.   
+ This project was made just for fun during lockdown.Please don't use it in a wrong way. I am not responsible if anything happens.   
 
 
  [download]: <https://github.com/mozilla/geckodriver/releases>
