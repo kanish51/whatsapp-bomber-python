@@ -1,6 +1,5 @@
 from selenium import webdriver
 import time
-
 driver = webdriver.Firefox()
 driver.get('http://web.whatsapp.com')
 personName=input("Name of the person/group to send message: ")
@@ -15,16 +14,32 @@ usr.send_keys(personName)
 time.sleep(8)
 str="document.querySelector('[title="+'"'+personName+'"'+"]')"
 usr1=driver.execute_script("return "+str)
+if usr1 is None:
+	print("Username doesn't match! Enter exact name and restart script")
+	driver.quit()
 usr1.click()
-usr2=driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Type a message'])[1]/following::div[1]")
-usr2.click()
-i=1
-while i<=count:
-	usr2.send_keys(Message)
-	time.sleep(1)
-	usr3=driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[3]/button")
-	usr3.click()
-	time.sleep(2)
-	i=i+1
+usr_c=driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/header/div[2]/div/div/span")
+user_name=usr_c.get_attribute("title")
+print("##################################")
+print("User Selected: "+user_name)
+print("##################################")
+if(personName!=user_name):
+	print("Username doesn't match! Enter exact name and restart script")
+else:
+	userinp=input("Enter Y to start sending messages or enter N to quit: ")
+	if(userinp=="Y"):
+		usr2=driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Type a message'])[1]/following::div[1]")
+		usr2.click()
+		i=1
+		while i<=count:
+			usr2.send_keys(Message)
+			time.sleep(1)
+			usr3=driver.find_element_by_xpath("/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[3]/button")
+			usr3.click()
+			time.sleep(2)
+			i=i+1
+	else:
+		print("Exiting...")
 
-print('Done')
+driver.quit()
+print("Done!")
